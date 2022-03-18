@@ -24,7 +24,6 @@ export const modal = () => {
 	};
 
 	const modalDown = () => {
-		let startPosition = modal.style.top = 50;
 
 		animate({
 			duration: 200,
@@ -34,7 +33,7 @@ export const modal = () => {
 			draw(progress) {
 				progress == 1 ? overlay.style.display = "none" :
 					overlay.style.opacity = 1 - progress;
-				modal.style.top = (startPosition + progress * 100) + "%";
+				modal.style.top = (50 + progress * 100) + "%";
 			}
 		});
 	};
@@ -53,7 +52,7 @@ export const modal = () => {
 		modal.style.top = 50 + "%"
 	}
 	document.body.addEventListener('click', (e) => {
-		e.preventDefault()
+		// e.preventDefault()
 		if (e.target.closest('.button > [href="#callback"]')) {
 			if (innerWidth < 768) {
 				modalMobileOpen()

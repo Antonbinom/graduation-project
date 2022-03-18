@@ -1593,15 +1593,14 @@ input.error {
 .benefits-wrap {
   display: flex;
   justify-content: space-between;
-  margin: 0 auto;
 }
 
 .benefits__item {
   width: 100%;
-  max-width: 185px;
 }
 
 .benefits-arrows {
+  position: relative;
   display: flex;
   justify-content: space-between;
   width: 100px;
