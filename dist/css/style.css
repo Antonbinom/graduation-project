@@ -1590,6 +1590,11 @@ input.error {
   background-color: rgba(0, 0, 0, 0.45);
 }
 
+.scroll-hide {
+  margin-right: 8px;
+  overflow-y: hidden;
+}
+
 .benefits-wrap {
   display: flex;
   justify-content: space-between;
@@ -1664,6 +1669,11 @@ input.error {
   transform: rotate(90deg);
 }
 
+@media(max-width: 992px){
+  .scroll-hide {
+    margin-right: 17px;
+  }
+}
 @media (min-width: 576px) {
   .benefits-wrap {
     width: 100%;
@@ -1676,4 +1686,5 @@ input.error {
     width: 100%;
     max-width: 576px;
   }
+
 }
