@@ -1,24 +1,32 @@
-export const animate = ({ // во время запуска функции
+export const animate = ({
 	timing,
 	draw,
-	duration // длительность анимации
+	duration
 }) => {
 
-	let start = performance.now(); // текущая точка времени на данный момент
-
-	requestAnimationFrame(function animate(time) { // внутри функции запускается еще одна функция с аргументом в качестве временной рамки очередного повторения функции animate
-		// timeFraction изменяется от 0 до 1
-		let timeFraction = (time - start) / duration; // разность текущего времени и началом нашей анимации деленное на длительность анимации
+	let start = performance.now();
+	requestAnimationFrame(function animate(time) {
+		let timeFraction = (time - start) / duration;
 		if (timeFraction > 1) timeFraction = 1;
 
-		// вычисление текущего состояния анимации
-		let progress = timing(timeFraction); // результат выполнения функции timing с числом от 0 до 1
+		let progress = timing(timeFraction);
 
-		draw(progress); // отрисовать её
+		draw(progress);
 
 		if (timeFraction < 1) {
 			requestAnimationFrame(animate);
 		}
-
 	});
+}
+
+export const hideScroll = (item) => {
+	let scrollWidth = innerWidth - item.clientWidth
+	item.style.marginRight = scrollWidth + "px"
+	item.style.overflowY = "hidden"
+	console.log(item.offsetWidth)
+}
+
+export const showScroll = (item) => {
+	item.style.marginRight = 0
+	item.style.overflowY = "auto"
 }
