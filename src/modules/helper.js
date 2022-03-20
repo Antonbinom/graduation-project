@@ -23,7 +23,6 @@ export const hideScroll = (item) => {
 	let scrollWidth = innerWidth - item.clientWidth
 	item.style.marginRight = scrollWidth + "px"
 	item.style.overflowY = "hidden"
-	console.log(item.offsetWidth)
 }
 
 export const showScroll = (item) => {

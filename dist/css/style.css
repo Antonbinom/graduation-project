@@ -1611,6 +1611,7 @@ input.error {
   height: 100vh;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.45);
+  z-index: 1000;
 }
 
 .benefits-wrap {
@@ -1676,7 +1677,7 @@ input.error {
   border: 3px solid gray;
 }
 
-.count > span {
+.count > span:last-child {
   font-size: 24px;
 }
 
