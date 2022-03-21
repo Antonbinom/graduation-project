@@ -3,10 +3,6 @@ export const timer = (deadline) => {
 	const timerItems = document.querySelectorAll('.count>span')
 	const countName = document.querySelectorAll('.count-name')
 
-	// countName.forEach(name => {
-	// 	if (name.textContent)
-	// })
-
 	const timing = () => {
 		let dateStop = new Date(deadline).getTime()
 		let dateNow = new Date().getTime()
@@ -24,9 +20,9 @@ export const timer = (deadline) => {
 		}
 	}
 
-	const wordDeclension = (name, value) => {
+	const wordDeclension = (name, value, className) => {
 		countName.forEach(item => {
-			if (item.classList.contains('days')) {
+			if (item.classList.contains(`${className}`)) {
 				if (value % 10 > 1 && value % 10 < 5) item.textContent = name[0];
 				else if (value % 10 == 1 && value != 11) item.textContent = name[1];
 				else item.textContent = name[2];
@@ -42,22 +38,22 @@ export const timer = (deadline) => {
 			const hoursArr = ['Часа', 'Час', 'Часов']
 			const minutesArr = ['Минуты', 'Минута', 'Минут']
 			const secondsArr = ['Секунды', 'Секунда', 'Секунд']
-			const countClass = ['days', 'hours', 'minutes', 'seconds']
-
-			let countValue = item.textContent
 
 			if (item.classList.contains('count-days')) {
 				item.textContent = getTime.days
-				wordDeclension(daysArr, countValue)
-			} else if (item.classList.contains('count-hours')) {
+				wordDeclension(daysArr, item.textContent, 'days')
+			}
+			if (item.classList.contains('count-hours')) {
 				item.textContent = getTime.hours
-				wordDeclension(hoursArr, countValue)
-			} else if (item.classList.contains('count-minutes')) {
+				wordDeclension(hoursArr, item.textContent, 'hours')
+			}
+			if (item.classList.contains('count-minutes')) {
 				item.textContent = getTime.minutes
-				wordDeclension(minutesArr, countValue)
-			} else if (item.classList.contains('count-seconds')) {
+				wordDeclension(minutesArr, item.textContent, 'minutes')
+			}
+			if (item.classList.contains('count-seconds')) {
 				item.textContent = getTime.seconds
-				wordDeclension(secondsArr, countValue)
+				wordDeclension(secondsArr, item.textContent, 'seconds')
 			}
 			if (item.textContent.length < 2) {
 				item.textContent = "0" + item.textContent
