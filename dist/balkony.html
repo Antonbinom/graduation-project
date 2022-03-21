@@ -629,7 +629,7 @@
 							<form name="action-form" class="form-horizontal">
 								<div class="form-group">
 									<div class="col-sm-12">
-										<input type="text" name="fio" class="form-control required" placeholder="ваше имя">
+										<input type="text" name="name" class="form-control required" placeholder="ваше имя">
 									</div>
 								</div>
 								<div class="form-group">
@@ -641,7 +641,6 @@
 								<div class="form-group">
 									<div class="col-sm-12">
 										<div class="order-form-button">
-											<input type="hidden" name="page" value="Балконы">
 											<button type="submit" class="btn btn-warning btn-block feedback">Получить скидку!</button>
 										</div>
 									</div>
@@ -847,7 +846,7 @@
 							<form name="action-form2" class="form-horizontal">
 								<div class="form-group">
 									<div class="col-sm-12">
-										<input type="text" name="fio" class="form-control required" placeholder="ваше имя">
+										<input type="text" name="name" class="form-control required" placeholder="ваше имя">
 									</div>
 								</div>
 								<div class="form-group">
@@ -859,7 +858,6 @@
 								<div class="form-group">
 									<div class="col-sm-12">
 										<div class="order-form-button">
-											<input type="hidden" name="page" value="Балконы">
 											<button type="submit" class="btn btn-warning btn-block feedback">Получить скидку</button>
 										</div>
 									</div>
@@ -928,7 +926,7 @@
 							// Необходимо указать данный тип макета.
 							iconLayout: 'default#image',
 							// Своё изображение иконки метки.
-							iconImageHref: 'images/marker.png',
+							// iconImageHref: 'images/marker.png',
 							// Размеры метки.
 							iconImageSize: [30, 42],
 							// Смещение левого верхнего угла иконки относительно
@@ -980,7 +978,7 @@
 			</p>
 			<form name="callback-form">
 				<div class="form-group">
-					<input type="text" name="fio" class="form-control required" placeholder="Ваше имя*">
+					<input type="text" name="name" class="form-control required" placeholder="Ваше имя*">
 				</div>
 				<div class="form-group">
 					<input type="text" name="phone" class="form-control required" placeholder="Контактный телефон*"
@@ -990,7 +988,6 @@
 					<div class="text-center"><button type="submit" class="btn btn-warning feedback">Свяжитесь со мной!</button>
 					</div>
 				</div>
-				<input type="hidden" name="page" value="Балконы">
 			</form>
 			<span class="help-block">Гарантируем 100% конфиденциальность. Ваша информация не будет распространяться.</span>
 		</div>
@@ -1006,7 +1003,7 @@
 				скидку!</p>
 			<form name="order-form">
 				<div class="form-group">
-					<input type="text" name="fio" class="form-control required" placeholder="Ваше имя*">
+					<input type="text" name="name" class="form-control required" placeholder="Ваше имя*">
 				</div>
 				<div class="form-group">
 					<input type="text" name="phone" class="form-control required" placeholder="Контактный телефон*"
@@ -1016,7 +1013,6 @@
 					<div class="text-center"><button type="submit" class="btn btn-success feedback">Принять участие!</button>
 					</div>
 				</div>
-				<input type="hidden" name="page" value="Балконы">
 			</form>
 			<span class="help-block">Гарантируем 100% конфиденциальность. Ваша информация не будет распространяться.</span>
 		</div>
@@ -1031,7 +1027,7 @@
 			<p class="text-center">Оставьте заявку и специалист свяжется с Вами в ближайшее время!</p>
 			<form name="application-form">
 				<div class="form-group">
-					<input type="text" name="fio" class="form-control required" placeholder="Ваше имя*">
+					<input type="text" name="name" class="form-control required" placeholder="Ваше имя*">
 				</div>
 				<div class="form-group">
 					<input type="text" name="phone" class="form-control required" placeholder="Контактный телефон*"
@@ -1041,8 +1037,6 @@
 					<div class="text-center"><button type="submit" class="btn btn-success feedback">Вызвать замерщика!</button>
 					</div>
 				</div>
-				<input type="hidden" name="page" value="Балконы">
-				<input type="hidden" name="subject">
 			</form>
 			<span class="help-block">Гарантируем 100% конфиденциальность. Ваша информация не будет распространяться.</span>
 		</div>
@@ -1075,7 +1069,7 @@
 								вопросы!</p>
 							<form name="callback-form">
 								<div class="form-group">
-									<input type="text" name="fio" class="form-control required" placeholder="Ваше имя*">
+									<input type="text" name="name" class="form-control required" placeholder="Ваше имя*">
 								</div>
 								<div class="form-group">
 									<input type="text" name="phone" class="form-control required" placeholder="Контактный телефон*"
@@ -1085,7 +1079,6 @@
 									<div class="text-center"><button type="submit" class="btn btn-warning feedback">Свяжитесь со
 											мной!</button></div>
 								</div>
-								<input type="hidden" name="page" value="Окна">
 							</form>
 							<span class="help-block">Гарантируем 100% конфиденциальность. Ваша информация не будет
 								распространяться.</span>
@@ -1108,7 +1101,7 @@
 							<p class="text-center">Оставьте заявку и специалист свяжется с Вами в ближайшее время!</p>
 							<form name="application-form">
 								<div class="form-group">
-									<input type="text" name="fio" class="form-control required" placeholder="Ваше имя*">
+									<input type="text" name="name" class="form-control required" placeholder="Ваше имя*">
 								</div>
 								<div class="form-group">
 									<input type="text" name="phone" class="form-control required" placeholder="Контактный телефон*"
@@ -1118,8 +1111,6 @@
 									<div class="text-center"><button type="submit" class="btn btn-success feedback">Вызвать
 											замерщика!</button></div>
 								</div>
-								<input type="hidden" name="page" value="Окна">
-								<input type="hidden" name="subject" value="Стандартные ПВХ-окна">
 							</form>
 							<span class="help-block">Гарантируем 100% конфиденциальность. Ваша информация не будет
 								распространяться.</span>

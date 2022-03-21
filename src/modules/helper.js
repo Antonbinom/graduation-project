@@ -29,3 +29,10 @@ export const showScroll = (item) => {
 	item.style.marginRight = 0
 	item.style.overflowY = "auto"
 }
+
+export const empty = (item) => {
+	item.classList.remove('success');
+	item.classList.remove('denied');
+	item.style.boxShadow = "";
+	item.value = ""
+}

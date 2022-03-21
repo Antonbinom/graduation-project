@@ -10,11 +10,15 @@ import {
 	showScroll
 } from './helper'
 
-export const modal = () => {
+import {
+	empty
+} from './helper'
 
+export const modal = () => {
 	const modalCallBack = document.querySelector('.header-modal')
 	const modalService = document.querySelector('.services-modal')
 	const overlay = document.querySelector('.overlay')
+	const modalInputs = document.querySelectorAll('.header-modal input, .services-modal input')
 
 	const modalOpen = (modal) => {
 		hideScroll(document.body)
@@ -62,6 +66,9 @@ export const modal = () => {
 			});
 		}
 		modal.classList.toggle('opened')
+		modalInputs.forEach(input => {
+			empty(input)
+		})
 
 	}
 	document.body.addEventListener('click', (e) => {
