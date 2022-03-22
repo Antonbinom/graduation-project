@@ -1759,6 +1759,7 @@ input.error {
 }
 
 .smooth-scroll--visible{
+  cursor: pointer;
   opacity: 1;
   display: block;
 }
