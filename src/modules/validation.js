@@ -18,8 +18,6 @@ export const validation = () => {
 		item.style.boxShadow = "0 0px 10px #e00000";
 	};
 
-
-
 	const checkInput = (input, reg) => {
 		let item = input.value;
 		let valid = reg.test(item);
@@ -57,7 +55,7 @@ export const validation = () => {
 	forms.forEach((form) => {
 		form.addEventListener('change', (e) => {
 			if (e.target.name === 'phone') {
-				let reg = /^\+\d[\d\(\)\ -]{1,13}\d$/;
+				let reg = /^\+\d[\d\(\)\ -]{3,13}\d$/;
 				checkInput(e.target, reg);
 
 			} else if (e.target.name === 'name') {

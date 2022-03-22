@@ -16,12 +16,12 @@ export const gallery = () => {
 
 	const openModal = (image) => {
 		overlay.style.display = "block"
-		modal.classList.toggle('open-image')
+		modal.classList.add('open-image')
 		modalImage.setAttribute('src', image)
 	}
 	const closeModal = () => {
 		overlay.style.display = "none"
-		modal.classList.toggle('open-image')
+		modal.classList.remove('open-image')
 	}
 
 	imagesOverlay.forEach((item, index) => {
