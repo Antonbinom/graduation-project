@@ -18,8 +18,13 @@ import {
 	sendForm
 } from "./modules/sendForm"
 
+import {
+	gallery
+} from "./modules/gallery"
+
 modal()
 swiper()
 timer('26 march 2022')
 validation()
 sendForm()
+gallery()

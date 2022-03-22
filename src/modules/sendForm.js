@@ -6,16 +6,6 @@ export const sendForm = () => {
 
 	const forms = document.querySelectorAll('form')
 
-	//
-	// const statusMessage = document.getElementById('responseMessage')
-	// const overlay = document.querySelector('.overlay')
-	// const formSuccess = () => {
-	// 	statusMessage.style.display = "block"
-	// 	overlay.style.display = "block"
-	// 	overlay.style.opacity = 1
-	// }
-
-	// formSuccess()
 	const validate = (list) => {
 		let success = true;
 

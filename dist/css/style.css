@@ -805,10 +805,17 @@ p.services-image_mobile {
 }
 .document-inner {
   display: inline-block;
-  position: relative;
+  /* position: relative; */
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
 }
+.document-wrapper{
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  width: 200px;
+}
 .document-overlay {
+  margin: 0 auto;
   background: url("../images/zoom.png") no-repeat center
     rgba(79, 104, 110, 0.42);
   position: absolute;
@@ -818,10 +825,42 @@ p.services-image_mobile {
   left: 0;
   opacity: 0;
 }
-.document-inner:hover .document-overlay {
+.document-overlay:hover {
   opacity: 1;
   transition: opacity 0.3s linear;
   -webkit-transition: opacity 0.3s linear;
+}
+.documents-modal{
+  display: none;
+  max-width: 650px;
+  height: auto;
+}
+.documents-modal__wrapper{
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+.documents-image{
+object-fit: cover;
+width: 100%;
+height: 100%;
+}
+.documents-modal__close{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+  padding-top: 7px;
+  text-align: center;
+  font-size: 22px;
+  color:white;
+  border-radius: 50%;
+  background-color: gray;
+  cursor: pointer;
+}
+.sertificate-document{
+  cursor:auto
 }
 #contacts {
   background-color: #00902a;
@@ -1352,6 +1391,10 @@ p.services-image_mobile {
   .document-inner {
     margin-bottom: 40px;
   }
+
+  #documents .col-sm-4 {
+    margin-bottom: 20px;
+  }
   #documents .col-sm-4:last-child .document-inner {
     margin-bottom: 0;
   }
@@ -1725,4 +1768,14 @@ input.error {
     max-width: 576px;
   }
 
+}
+
+.open-image {
+  /* height: 80%; */
+  display: block;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
 }

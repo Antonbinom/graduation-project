@@ -25,7 +25,6 @@ export const modal = () => {
 		modal.classList.toggle('opened')
 		if (innerWidth < 768) {
 			overlay.style.display = "block"
-			overlay.style.opacity = "1"
 			modal.style.top = 50 + "%"
 			modal.style.display = "block"
 		} else {
@@ -37,7 +36,6 @@ export const modal = () => {
 					return timeFraction;
 				},
 				draw(progress) {
-					overlay.style.opacity = progress
 					modal.style.top = 50 + "%"
 					modal.style.left = (50 * progress) + "%";
 				}
@@ -49,18 +47,19 @@ export const modal = () => {
 		showScroll(document.body)
 		if (innerWidth < 768) {
 			overlay.style.display = "none"
-			overlay.style.opacity = "1"
+			// overlay.style.opacity = "1"
 			modal.style.display = "none"
 			modal.style.top = 50 + "%"
 		} else {
+			overlay.style.display = "none"
 			animate({
 				duration: 200,
 				timing(timeFraction) {
 					return timeFraction;
 				},
 				draw(progress) {
-					progress == 1 ? overlay.style.display = "none" :
-						overlay.style.opacity = 1 - progress;
+					// progress == 1 ? overlay.style.display = "none" :
+					// overlay.style.opacity = 1 - progress;
 					modal.style.top = (50 + progress * 100) + "%";
 				}
 			});
@@ -71,7 +70,7 @@ export const modal = () => {
 		})
 
 	}
-	document.body.addEventListener('click', (e) => {
+	document.addEventListener('click', (e) => {
 		const modalOpened = document.querySelector('.opened');
 
 		if (e.target.closest('.button > [href="#callback"]')) {
@@ -84,8 +83,16 @@ export const modal = () => {
 
 		} else if (e.target.classList.contains('header-modal__close') || e.target.classList.contains('services-modal__close') || e.target === overlay) {
 			e.preventDefault();
-			modalClose(modalOpened)
+			if (modalCallBack.classList.contains('opened') || modalService.classList.contains('opened'))
+				modalClose(modalOpened)
 		}
 	})
+	// document.addEventListener('submit', (e) => {
+	// 	const modalOpened = document.querySelector('.opened');
+	// 	if (e.target.closest('.header-modal') || e.target.name === 'application-form') {
+	// 		// e.preventDefault();
+	// 		modalClose(modalOpened)
+	// 	}
+	// })
 
 }
