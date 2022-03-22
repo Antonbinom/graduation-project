@@ -17,12 +17,13 @@ import {
 export const modal = () => {
 	const modalCallBack = document.querySelector('.header-modal')
 	const modalService = document.querySelector('.services-modal')
+	const responseModal = document.getElementById('responseMessage')
 	const overlay = document.querySelector('.overlay')
 	const modalInputs = document.querySelectorAll('.header-modal input, .services-modal input')
 
 	const modalOpen = (modal) => {
 		hideScroll(document.body)
-		modal.classList.toggle('opened')
+		modal.classList.add('opened')
 		if (innerWidth < 768) {
 			overlay.style.display = "block"
 			modal.style.top = 50 + "%"
@@ -43,35 +44,34 @@ export const modal = () => {
 		}
 	}
 
-	const modalClose = (modal) => {
+	const modalClose = (modals) => {
 		showScroll(document.body)
-		if (innerWidth < 768) {
-			overlay.style.display = "none"
-			// overlay.style.opacity = "1"
-			modal.style.display = "none"
-			modal.style.top = 50 + "%"
-		} else {
-			overlay.style.display = "none"
-			animate({
-				duration: 200,
-				timing(timeFraction) {
-					return timeFraction;
-				},
-				draw(progress) {
-					// progress == 1 ? overlay.style.display = "none" :
-					// overlay.style.opacity = 1 - progress;
-					modal.style.top = (50 + progress * 100) + "%";
-				}
-			});
-		}
-		modal.classList.toggle('opened')
-		modalInputs.forEach(input => {
-			empty(input)
+		modals.forEach(modal => {
+			if (innerWidth < 768) {
+				overlay.style.display = "none"
+				modal.style.display = "none"
+				modal.style.top = 50 + "%"
+			} else {
+				overlay.style.display = "none"
+				modal.style.display = "none"
+				animate({
+					duration: 200,
+					timing(timeFraction) {
+						return timeFraction;
+					},
+					draw(progress) {
+						modal.style.top = (50 + progress * 100) + "%";
+					}
+				});
+			}
+			modal.classList.remove('opened')
+			modalInputs.forEach(input => {
+				empty(input)
+			})
 		})
-
 	}
 	document.addEventListener('click', (e) => {
-		const modalOpened = document.querySelector('.opened');
+		const modalOpened = document.querySelectorAll('.opened');
 
 		if (e.target.closest('.button > [href="#callback"]')) {
 			e.preventDefault();
@@ -81,18 +81,11 @@ export const modal = () => {
 			e.preventDefault()
 			modalOpen(modalService)
 
-		} else if (e.target.classList.contains('header-modal__close') || e.target.classList.contains('services-modal__close') || e.target === overlay) {
+		} else if (e.target.classList.contains('header-modal__close') || e.target.classList.contains('services-modal__close') || e.target === overlay || e.target.classList.contains('btn-close')) {
 			e.preventDefault();
-			if (modalCallBack.classList.contains('opened') || modalService.classList.contains('opened'))
+			if (modalCallBack.classList.contains('opened') || modalService.classList.contains('opened') || responseModal.classList.contains('opened'))
 				modalClose(modalOpened)
 		}
 	})
-	// document.addEventListener('submit', (e) => {
-	// 	const modalOpened = document.querySelector('.opened');
-	// 	if (e.target.closest('.header-modal') || e.target.name === 'application-form') {
-	// 		// e.preventDefault();
-	// 		modalClose(modalOpened)
-	// 	}
-	// })
 
 }

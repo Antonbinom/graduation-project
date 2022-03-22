@@ -2,19 +2,30 @@ import {
 	empty
 } from "./helper";
 
+import {
+	modal
+} from "./modal";
+
 export const sendForm = () => {
 
 	const forms = document.querySelectorAll('form')
+	const responseModal = document.getElementById('responseMessage')
+	const overlay = document.querySelector('.overlay')
+
+	const openModal = () => {
+		overlay.style.display = "block"
+		responseModal.classList.add('opened')
+		responseModal.style.display = "block"
+		responseModal.style.top = 50 + "%"
+	}
 
 	const validate = (list) => {
 		let success = true;
-
 		list.forEach(input => {
 			if (!input.classList.contains('success')) {
 				success = false;
 			}
 		});
-
 		return success;
 	};
 
@@ -42,16 +53,20 @@ export const sendForm = () => {
 			sendData(formBody)
 				.then(data => {
 					console.log(data);
-					alert('Данные отправленны!')
 					formElements.forEach(input => {
 						empty(input)
 					});
+					openModal(responseMessage)
 				})
 				.catch(error => {
 					console.log(error)
 				});
 		} else {
-			alert('Не верно заполнены поля')
+			formElements.forEach(input => {
+				if (input.value === '') {
+					input.style.boxShadow = "0 0px 10px #e00000";
+				}
+			});
 		}
 	};
 

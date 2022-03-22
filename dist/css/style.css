@@ -1628,20 +1628,15 @@ input.error {
   display: none;
 }
 
-.services-modal--opened {
+.modal--opened {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 9999;
 }
-
-.header-modal--opened {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 9999;
+#responseMessage{
+  z-index: 10000;
 }
 
 .header-modal__close {

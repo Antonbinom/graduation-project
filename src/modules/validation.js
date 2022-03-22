@@ -1,3 +1,5 @@
+import IMask from 'imask';
+
 import {
 	empty
 } from './helper'
@@ -6,6 +8,10 @@ export const validation = () => {
 
 	const inputs = document.querySelectorAll('input')
 	const forms = document.querySelectorAll('form')
+
+	const maskOptions = {
+		mask: '+{7}(000)000-00-00'
+	};
 
 	const success = (item) => {
 		item.classList.add('success');
@@ -31,23 +37,9 @@ export const validation = () => {
 		input.addEventListener('input', (e) => {
 			if (e.target.name === 'phone') {
 				e.target.value = e.target.value.replace(/[^0-9\+]/gi, "");
+				let mask = IMask(e.target, maskOptions);
 			} else if (e.target.name === 'name') {
 				e.target.value = e.target.value.replace(/[^а-яa-z\ ]/gi, "");
-			}
-		})
-	})
-
-
-	inputs.forEach(input => {
-		input.addEventListener('focus', (e) => {
-			if (e.target.name === 'phone' && e.target.value === '') {
-				e.target.value = '+7'
-			}
-		})
-
-		input.addEventListener('blur', (e) => {
-			if (e.target.name === 'phone' && e.target.value == '+7') {
-				input.value = ''
 			}
 		})
 	})
