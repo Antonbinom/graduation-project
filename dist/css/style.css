@@ -1749,10 +1749,18 @@ input.error {
 }
 
 .smooth-scroll {
+  display: none;
   position: fixed;
   right: 25px;
   bottom: 25px;
   transform: rotate(90deg);
+  opacity: 0;
+  z-index: 100;
+}
+
+.smooth-scroll--visible{
+  opacity: 1;
+  display: block;
 }
 
 @media (min-width: 576px) {

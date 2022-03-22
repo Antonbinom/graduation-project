@@ -15,6 +15,7 @@
     "webpack-dev-server": "^4.7.4"
   },
   "dependencies": {
+    "seamless-scroll-polyfill": "^2.1.8",
     "swiper": "^8.0.7"
   }
 }

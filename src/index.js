@@ -22,9 +22,14 @@ import {
 	gallery
 } from "./modules/gallery"
 
+import {
+	scroll
+} from "./modules/scroll"
+
 modal()
 swiper()
 timer('26 march 2022')
 validation()
 sendForm()
 gallery()
+scroll()
