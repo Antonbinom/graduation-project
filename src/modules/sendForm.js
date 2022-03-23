@@ -15,6 +15,8 @@ export const sendForm = () => {
 	const forms = document.querySelectorAll('form')
 	const responseModal = document.getElementById('responseMessage')
 	const overlay = document.querySelector('.overlay')
+	const navbarItem = document.querySelectorAll('#menu > li')[1]
+	const pageName = document.querySelector('#menu > li.active').textContent
 
 	const openModal = (modal) => {
 		hideScroll(document.body)
@@ -32,6 +34,17 @@ export const sendForm = () => {
 			modal.style.display = "none"
 		})
 		overlay.style.display = "none"
+	}
+
+	const resetCalc = () => {
+		const calcItems = document.querySelectorAll('.calc-item, #calc-total')
+
+		calcItems.forEach(item => {
+			if (item.matches('select')) {
+				item.selectedIndex = 0
+			}
+			if (item.matches('input')) item.value = ''
+		})
 	}
 
 	const validate = (list) => {
@@ -63,6 +76,11 @@ export const sendForm = () => {
 		formData.forEach((val, key) => {
 			formBody[key] = val;
 		});
+		formBody['page'] = pageName
+		if (navbarItem.classList.contains('active')) {
+			let calcTotal = document.getElementById('calc-total').value
+			if (calcTotal) formBody['price'] = calcTotal
+		}
 
 		if (validate(formElements)) {
 			sendData(formBody)
@@ -73,6 +91,7 @@ export const sendForm = () => {
 					});
 					openModal(responseModal)
 					setTimeout(closeModal, 2000)
+					resetCalc()
 				})
 				.catch(error => {
 					console.log(error)
