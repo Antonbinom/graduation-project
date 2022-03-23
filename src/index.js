@@ -26,6 +26,10 @@ import {
 	scroll
 } from "./modules/scroll"
 
+import {
+	calc
+} from "./modules/calc"
+
 modal()
 swiper()
 timer('26 march 2022')
@@ -33,3 +37,4 @@ validation()
 sendForm()
 gallery()
 scroll()
+calc()

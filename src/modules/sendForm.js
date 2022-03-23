@@ -3,8 +3,12 @@ import {
 } from "./helper";
 
 import {
-	modal
-} from "./modal";
+	hideScroll
+} from './helper'
+
+import {
+	showScroll
+} from './helper'
 
 export const sendForm = () => {
 
@@ -12,11 +16,22 @@ export const sendForm = () => {
 	const responseModal = document.getElementById('responseMessage')
 	const overlay = document.querySelector('.overlay')
 
-	const openModal = () => {
+	const openModal = (modal) => {
+		hideScroll(document.body)
 		overlay.style.display = "block"
-		responseModal.classList.add('opened')
-		responseModal.style.display = "block"
-		responseModal.style.top = 50 + "%"
+		modal.classList.add('opened')
+		modal.style.display = "block"
+		modal.style.top = 50 + "%"
+	}
+
+	const closeModal = () => {
+		showScroll(document.body)
+		const modalsOpened = document.querySelectorAll('.opened')
+		modalsOpened.forEach(modal => {
+			modal.classList.remove('opened')
+			modal.style.display = "none"
+		})
+		overlay.style.display = "none"
 	}
 
 	const validate = (list) => {
@@ -56,7 +71,8 @@ export const sendForm = () => {
 					formElements.forEach(input => {
 						empty(input)
 					});
-					openModal(responseMessage)
+					openModal(responseModal)
+					setTimeout(closeModal, 2000)
 				})
 				.catch(error => {
 					console.log(error)

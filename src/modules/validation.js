@@ -1,17 +1,15 @@
-import IMask from 'imask';
-
 import {
 	empty
 } from './helper'
+
+import {
+	phoneMask
+} from './phoneMask';
 
 export const validation = () => {
 
 	const inputs = document.querySelectorAll('input')
 	const forms = document.querySelectorAll('form')
-
-	const maskOptions = {
-		mask: '+{7}(000)000-00-00'
-	};
 
 	const success = (item) => {
 		item.classList.add('success');
@@ -34,12 +32,14 @@ export const validation = () => {
 	};
 
 	inputs.forEach(input => {
+		if (input.name === 'phone') {
+			phoneMask(input)
+		}
 		input.addEventListener('input', (e) => {
-			if (e.target.name === 'phone') {
-				e.target.value = e.target.value.replace(/[^0-9\+]/gi, "");
-				let mask = IMask(e.target, maskOptions);
-			} else if (e.target.name === 'name') {
+			if (e.target.name === 'name') {
 				e.target.value = e.target.value.replace(/[^а-яa-z\ ]/gi, "");
+			} else if (e.target.name === 'calc-input') {
+				e.target.value = e.target.value.replace(/[^0-9]/gi, "");
 			}
 		})
 	})
@@ -47,7 +47,7 @@ export const validation = () => {
 	forms.forEach((form) => {
 		form.addEventListener('change', (e) => {
 			if (e.target.name === 'phone') {
-				let reg = /^\+\d[\d\(\)\ -]{3,13}\d$/;
+				let reg = /^\+\d[\d\(\)\ -]{8,15}\d$/;
 				checkInput(e.target, reg);
 
 			} else if (e.target.name === 'name') {

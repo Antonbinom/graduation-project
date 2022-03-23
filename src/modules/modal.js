@@ -53,7 +53,6 @@ export const modal = () => {
 				modal.style.top = 50 + "%"
 			} else {
 				overlay.style.display = "none"
-				modal.style.display = "none"
 				animate({
 					duration: 200,
 					timing(timeFraction) {

@@ -269,7 +269,7 @@ input.error {
 }
 #navigation-fixed:after {
   position: absolute;
-  z-index: 1030;
+  z-index: 30;
   bottom: -1px;
   content: "";
   display: block;
@@ -800,6 +800,10 @@ p.services-image_mobile {
 #about .col-lg-4:last-child .about-inner:last-child:after {
   display: none;
 }
+
+.total-value{
+  color:red
+}
 #documents {
   background: url("../images/document-bg.jpg");
 }
@@ -1060,7 +1064,7 @@ height: 100%;
   top: 0;
   right: 0;
   bottom: 0;
-  z-index: 1080;
+  z-index: 80;
 }
 .arcticmodal-container {
   overflow: auto;
@@ -1633,10 +1637,10 @@ input.error {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 9999;
+  z-index: 999;
 }
 #responseMessage{
-  z-index: 10000;
+  z-index: 1000;
 }
 
 .header-modal__close {
@@ -1673,7 +1677,7 @@ input.error {
   height: 100vh;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.45);
-  z-index: 1000;
+  z-index: 998;
 }
 
 .benefits-wrap {
@@ -1781,5 +1785,5 @@ input.error {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 9999;
+  z-index: 999;
 }
