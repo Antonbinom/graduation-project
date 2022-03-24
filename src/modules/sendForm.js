@@ -16,7 +16,7 @@ export const sendForm = () => {
 	const responseModal = document.getElementById('responseMessage')
 	const overlay = document.querySelector('.overlay')
 	const navbarItem = document.querySelectorAll('#menu > li')[1]
-	const pageName = document.querySelector('#menu > li.active').textContent
+	const pageName = document.querySelector('#menu > li.active')
 
 	const openModal = (modal) => {
 		hideScroll(document.body)
@@ -76,7 +76,7 @@ export const sendForm = () => {
 		formData.forEach((val, key) => {
 			formBody[key] = val;
 		});
-		formBody['page'] = pageName
+		formBody['page'] = pageName.innerText
 		if (navbarItem.classList.contains('active')) {
 			let calcTotal = document.getElementById('calc-total').value
 			if (calcTotal) formBody['price'] = calcTotal
