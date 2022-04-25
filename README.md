@@ -21,4 +21,4 @@
 - Swiper Slider;
 - Отправка данных на сервер fetch-api;
 
-## <a href="">Ссылка</a>
+## <a href="https://antonbinom.github.io/graduation-project/dist">Ссылка</a>
