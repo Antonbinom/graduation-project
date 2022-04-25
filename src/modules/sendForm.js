@@ -79,7 +79,7 @@ export const sendForm = () => {
 		formBody['page'] = pageName.innerText
 		if (navbarItem.classList.contains('active')) {
 			let calcTotal = document.getElementById('calc-total').value
-			if (calcTotal) formBody['price'] = calcTotal
+			if (calcTotal) formBody['price'] = calcTotal + 'руб'
 		}
 
 		if (validate(formElements)) {

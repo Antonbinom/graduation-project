@@ -499,6 +499,9 @@ input.error {
 .review-ico:before {
   background-color: #5f747f;
 }
+.avatar {
+  max-width: 121px;
+}
 .employee-ico {
   background-position: -123px 0px;
 }
@@ -730,7 +733,7 @@ p.services-image_mobile {
 .review-arrow:after {
   content: "";
   position: absolute;
-  top: 67px;
+  top: 60px;
   background-image: url("../images/review-arrows.png");
   background-repeat: no-repeat;
   width: 39px;
@@ -748,6 +751,7 @@ p.services-image_mobile {
 .review-arrow-right:after {
   right: -39px;
 }
+
 .review-green:after {
   background-position: 0px 0px;
 }

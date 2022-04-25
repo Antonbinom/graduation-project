@@ -30,11 +30,16 @@ import {
 	calc
 } from "./modules/calc"
 
+import {
+	comments
+} from "./modules/comments"
+
 modal()
 swiper()
-timer('26 march 2022')
+timer('26 march 2023')
 validation()
 sendForm()
 gallery()
 scroll()
 calc()
+comments('comments.json')
